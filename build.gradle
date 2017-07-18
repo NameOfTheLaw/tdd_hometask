@@ -1,27 +1,24 @@
 group 'com.epam.labs.tdd.hometask'
 version '1.0-SNAPSHOT'
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '3.3'
-    distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+subprojects {
+
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+
+        compile "org.junit.jupiter:junit-jupiter-api:5.0.0-M4"
+
+
+        testCompile 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M4',
+                'org.hamcrest:hamcrest-all:1.3'
+
+
+    }
 }
-
-apply plugin: 'java'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-
-    compile "org.junit.jupiter:junit-jupiter-api:5.0.0-M4"
-
-
-    testCompile 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M4',
-            'org.hamcrest:hamcrest-all:1.3'
-
-
-}
-
